@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Заполнение двумерного массива 10 на 10
+        let arr = [];
+        for (let i = 0; i < 10; i++) {
+          let row = [];
+          for (let j = 0; j < 10; j++) {
+            row.push(Math.floor(Math.random() * 100));
+          }
+          arr.push(row);
+        }
+        // Вывод массива в виде таблицы
+        function displayArray(array) {
+          var table = document.createElement("table");
+          table.border = "2";
+      
+          for (var row of array) {
+            var tr = document.createElement("tr");
+            table.appendChild(tr);
+      
+            for (var col of row) {
+              var td = document.createElement("td");
+              td.innerText = col;
+              tr.appendChild(td);
+            }
+          }
+      
+          document.body.appendChild(table);
+        }
+      
+        displayArray(arr);
+        console.log(arr)
+        let evenCount = 0;
+        for(let i = 0; i < arr.length; i++){
+            for(let j = 0; j < arr[i].length; j++){
+                if(arr[i][j] % 2 === 0){
+                    evenCount++;
+                }
+            }
+        }
+        console.log("В массиве четных чисел: ", evenCount);
+        let sum = 0, count = 0;
+        for(let i = 0; i < arr.length; i++){
+            for(let j = 0; j < arr[i].length; j++){
+                sum += arr[i][j]
+                }
+            if (sum > 100) count += 1;
+            sum = 0
+            }
+        console.log("В массиве" , count, "строк, сумма которых больше 100")
+      </script>
+</body>
+</html>
